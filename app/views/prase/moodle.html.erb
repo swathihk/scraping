@@ -1,0 +1,11 @@
+<%count=0%>
+<table border="1" cellspacing='0' cellpadding='0'>
+  <tr><td>S NO</td><td>Title</td><td>Type</td><td>Contact</td><td>Location</td><td>Description</td></tr>
+  <%@moodle.each do |key,value|%>
+      <tr><td><%=count=count+1%></td>
+        <%value.each do |key2,value2|%>
+            <td><%=value2%>key <%=key2%></td>
+        <%end%>
+      </tr>
+  <%end%>
+</table>

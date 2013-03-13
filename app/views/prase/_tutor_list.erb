@@ -1,0 +1,38 @@
+
+<h2 align="center"><%=@text_value.capitalize%> Tutors</h2>
+<%count=0%>
+<table border="1" cellspacing='0' cellpadding='0'>
+      <tr><td>S.No</td><td>ID</td><td>Image</td><td>Name</td><td>Location</td><td>Skills</td><td>Description</td><td>Experience</td><td>rating</td></tr>
+ <%@a.each do |key,value|%>
+  <tr><td><%=count=count+1%></td>
+  <% value.each do |k2,v2|%>
+     <%if k2==0%>
+            <!--site_id -->
+      <td><% @id1 =v2.split('/')%><%@id2=@id1[3].split('?')%><%=@site_id=@id2[0]%> </td>
+
+        <%elsif k2==1%>
+            <!--image -->
+    <td><%@img2=v2.split('"')%> <%@url_image= "http://www.thinkvidya.com#{@img2[5]}"%><img src="http://www.thinkvidya.com<%="#{@img2[5]}"%> ">   </td>
+        <%elsif k2==2%>
+        <td><%= @name=v2%></td>
+        <%elsif k2==3%>
+            <td><% @location=v2%><%=@location=@location.gsub(/\s+/, "")%></td>
+        <%elsif k2==4%>
+            <td><%=@skills=v2.strip%> <%#=@skills=@skill.gsub(/\s+/, "")%></td>
+        <%elsif k2==5%>
+            <td><%=@des=v2.strip%><%#=@des=@des.gsub(/\s+/, "")%> </td>
+        <%elsif k2==6%>
+            <td> <%#=v2%><%@exp=v2.split(':')%> <%if !@exp[1].nil?%> <%@exp1=@exp[1].split('')%> <%=@exp_value=@exp1[1]%><%else%><%=@exp_value=""%> <%end%> </td>
+        <%elsif k2==7%>
+            <td><%@rate1=v2.split('_')%>  <%@rate2=@rate1[1].split('.')%> <%=@rating=@rate2[0]%>  </td>
+        <%else%>
+    <td><%url=v2.split('amp') %><%url_test=url[0].split('"')%><%url_test[1]%><%=@url_full= "http://www.thinkvidya.com#{url_test[1]}"%></td>
+
+     <%end%>
+
+  <%end%>
+    <%#Tutor.create(:site_id=>@site_id,:name=>@name,:location=>@location,:skills=>@skills,:about_us=>@des,:experience=>@exp_value,:rating=>@rating)%>
+  
+</tr>
+ <%end%>
+</table>

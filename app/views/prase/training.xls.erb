@@ -1,0 +1,32 @@
+<%count=0%>
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Company Name</Data></Cell>
+        <Cell><Data ss:Type="String">Training Industry url</Data></Cell>
+        <Cell><Data ss:Type="String">Address</Data></Cell>
+        <Cell><Data ss:Type="String">Company Url</Data></Cell>
+        <Cell><Data ss:Type="String">Contact Person name</Data></Cell>
+        <Cell><Data ss:Type="String">Telephone</Data></Cell>
+      </Row>
+      <%# @products.each do |product| %>
+      <%@tra.each do |key,value|%>
+          <Row>
+            <Cell><Data ss:Type="Number"><%= count=count+1 %></Data></Cell>
+            <%value.each do |key2,value2|%>
+
+                <Cell><Data ss:Type="String"><%= value2 %></Data></Cell>
+
+            <% end %>
+          </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

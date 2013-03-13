@@ -1,0 +1,27 @@
+<%count=0%>
+<!--<table border="1" cellspacing='0' cellpadding='0'>
+  <tr><td>S NO</td><td>Title</td><td>url</td><td>location</td><td>company url</td><td>per</td><td>nol</td></tr>
+  <%#@tra.each do |key,value|%>
+      <tr><td><%#=count=count+1%></td>
+        <%#value.each do |key2,value2|%>
+            <td><%#=value2%></td>
+        <%#end%>
+      </tr>
+  <%#end%>
+</table>-->
+<table border="1" cellspacing='0' cellpadding='0'>
+      <tr><td>S NO</td><td>Company name</td><td>Training Industry company url</td><td>Location</td><td>Company url</td><td>person</td><td>tel</td></tr>
+  <%@tra.each do |key,value|%>
+  <tr><td><%=count=count+1%></td>
+    <%value.each do |key2,value2|%>
+    <td><%=value2%></td>
+    <%end%>
+  </tr>
+  <%end%>
+</table>
+
+<h2>Import Products</h2>
+<%= form_tag prase_import_path, :multipart=> true do %>
+<%= file_field_tag :file %>
+<%= submit_tag "Import" %>
+<% end %>

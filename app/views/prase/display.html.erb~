@@ -1,0 +1,19 @@
+<%count=0%>
+<table border="1" cellspacing='0' cellpadding='0'>
+      <tr><td>S NO</td><td>Price</td><td>Title</td><td>Clock</td><td>Author</td><td>Rating</td><td>Description</td><td>Tag</td></tr>
+ <%@open_sesame.each do |key,value|%>
+  <tr><td><%=count=count+1%></td>
+  <%value.each do |key2,value2|%>
+<%if key2==5%>
+    <td><%@des=value2.split('<p>')%><%@des_split=@des[1].split('</p>')%><%=@des_split[0]%></td>
+<%elsif key2==6%>
+<td><%@img=value2.split('src="')%><%@imag2=@img[1].split('"')%><%@last_image=@imag2[0]%><img src="https://www.opensesame.com<%="#{@last_image}"%> "></td>
+<%else%>
+<td><%=value2%></td>
+<%end%>
+  <%end%>
+   
+  
+</tr>
+ <%end%>
+</table>

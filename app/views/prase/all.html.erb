@@ -1,0 +1,5 @@
+ <table border="1">
+<%Tutor.all.each do |i|%>
+  <tr><td><%= i.name %></td><td><%=i.site_id%></td><td><%= i.skills%> </td><td><%=i.location%></td><td> <%=i.about_us%></td><td><%=i.experience%></td><td><%=i.rating%></td></tr>
+<%end%>
+ </table>

@@ -1,0 +1,25 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<h2 align="center"><%=@text_value.capitalize%> Tutors</h2>
+<%count=0%>
+<table border="1" cellspacing='0' cellpadding='0'>
+      <tr><td>S.No</td><td>ID</td><td>Image</td><td>Name</td><td>Location</td><td>Skills</td><td>Description</td><td>Experience</td></tr>
+ <%@a.each do |key,value|%>
+  <tr><td><%=count=count+1%></td>
+  <% value.each do |k2,v2|%>
+     <%if k2==0%>
+      <td><% @id1 =v2.split('/')%><%@id2=@id1[3].split('?')%><%=@id2[0]%></td>
+     <%elsif k2==1%>
+    <td><%@img2=v2.split('"')%> <img src="http://www.thinkvidya.com<%="#{@img2[5]}"%> ">   </td>
+     <%else%>
+    <td><%=v2%></td>
+     <%end%>
+   
+  <%end%>
+   
+  
+</tr>
+ <%end%>
+</table>

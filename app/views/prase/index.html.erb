@@ -1,0 +1,26 @@
+<%#=form_for :search,:remote=>true do |i|%>
+<%#=i.text_field :value%>
+<%#=i.submit%>
+<%#end%>
+<%= form_tag url_for(:action => :index),:remote=>true do %>
+<%#= form_tag prase_index_path,:remote=>true, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil ,:id=>'touch' %>
+  </p>
+<%end%>
+
+<div id="thinkvidya" >
+
+<div id='loader' style='display:none'><%=image_tag 'roller.gif'%></div>
+<br/><br/>
+
+</div>
+
+<script type='text/javascript'>
+$('#touch').click(function(){
+    $('#loader').css("display", "block");
+  });
+</script>
+
+

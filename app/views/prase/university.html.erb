@@ -1,0 +1,14 @@
+<%count=0%>
+<table border="1" cellspacing='0' cellpadding='0'>
+  <tr><td>S NO</td><td>Title</td><td>url</td></tr>
+  <%@uni.each do |key,value|%>
+      <tr><td><%=count=count+1%></td>
+        <%value.each do |key2,value2|%>
+
+            <td><%=value2%></td>
+
+
+        <%end%>
+      </tr>
+  <%end%>
+</table>
